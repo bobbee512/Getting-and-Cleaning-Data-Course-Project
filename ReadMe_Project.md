@@ -1,5 +1,5 @@
-## Getting and Cleaning Data Course Project
-## R script called run_analysis.R
+Getting and Cleaning Data Course Project
+R script called run_analysis.R
 
 run_analysis()
 
@@ -20,11 +20,11 @@ I also use the dplyr package.  The following are the steps taken.
 
 4. add column names for the 561 attributes from features.txt.
 
-## features has two columns.  The first, is the number for the feature (V1) and the second 
-## is the feature (V2)
+ Features has two columns.  The first, is the number for the feature (V1) and the second 
+ is the feature (V2)
 
-## I use the second column of features for the column headings of X_train_data by
-## transposing V2 into a row and rbinding V2 to X_train_data.
+ I use the second column of features for the column headings of X_train_data by
+ transposing V2 into a row and rbinding V2 to X_train_data.
 
 5. create a new 1 character attribute(column) in X_train_data for an "activities" atribute,
 from y_train.txt. Call it Activity. 
@@ -61,20 +61,20 @@ and fill it with the sequential numbers from 7353 to 10299.
 17. extract from ordered_data only those columns that are means or standard deviations 
 of each measurement.
 
-##  Include all column headings that have the labels "-mean()" or "-std()" in them.
-##  I chose these formats because they seemed to be the same type of data.
+Include all column headings that have the labels "-mean()" or "-std()" in them only.
+I chose these formats because they seemed to be the same type of data.
 
 STEP 17 IS NOT YET WORKING.
 
 18. write a table for the reduced_ordered_data and call it tidy_ordered_data.
 
-##  This completes the work for my first tidy data set.  Call it tidy_ordered_data. 
-##  tidy_ordered_data contains 4 categorical variables and 86 measurement variables, with
-##  7352 data rows and 1 column headings row.
+This completes the work for my first tidy data set.  Call it tidy_ordered_data. 
+tidy_ordered_data contains 4 categorical variables and 86 measurement variables, with
+7352 data rows and 1 column headings row.
 
-##  For the next section, I chose to use the dplyr library to group and summarize and 
-##  the data by Subject and Activity.  I called it sum_ordered_data.
-##  The final table created by a write.table is called tidy_data.
+For the next section, I chose to use the dplyr library to group and summarize and 
+the data by Subject and Activity.  I called it sum_ordered_data.
+The final table created by a write.table is called tidy_data.
 
 19. create a 2nd independent tidy data set with the average of each variable for each 
 activity and each subject.  
@@ -95,9 +95,9 @@ TAIL
 2      30 WALKING_DOWNSTAIRS         0.2831906       -0.01743839       -0.09997814
 3      30   WALKING_UPSTAIRS         0.2714156       -0.02533117       -0.12469749
 
-##  This completes the work for my 2nd tidy data set.  Call it tidy_data. 
-##  It contains the average of each mean or std variable for each activity and each subject. 
-##  It consists of 2 categorical variables (Subject and Activity) and 64 measurement variables.  There
-##  are 180 rows(30 subjects, 6 activities each).
+This completes the work for my 2nd tidy data set.  Call it tidy_data. 
+It contains the average of each mean or std variable for each activity and each subject. 
+It consists of 2 categorical variables (Subject and Activity) and 64 measurement variables.  There
+are 180 rows(30 subjects, 6 activities each).
 
 }
