@@ -160,6 +160,8 @@ run_analysis <- function(){
 
 ##  I use the dplyr library for this. 
 
+    if("dplyr"%in%rownames(installed.packages()) == FALSE){install.packages("dplyr")}
+
     library(dplyr)
 
     reduced_ordered_data <- select (ordered_data, full_selected_columns)
