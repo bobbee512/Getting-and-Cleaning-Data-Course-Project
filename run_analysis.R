@@ -1,4 +1,3 @@
-## Getting and Cleaning Data Course Project
 ## R script called run_analysis.R
 
 run_analysis <- function(){
@@ -137,61 +136,59 @@ run_analysis <- function(){
 ##  Extract from ordered_data only those columns that are means or standard deviations 
 ##  of each measurement.
 
-##  Include all column headings that have the labels "-mean()" or "-std()" in them.
+##  Include all column headings that have the labels "-mean()" or "-std()" or "meanFreq" in them.
 ##  I chose these formats because they seemed to be the same type of data.
 
 ## It is called reduced_ordered_data.
 
 ##  trans_features contains all the column headings to be searched.  
     
-##    print(trans_features)
-
     selected_columns <- grep("mean|std", trans_features)
 
- ##   print(selected_columns)
 
-# selected_columns are the measurements from trans_features that I keep.
-# It is a list of numbers starting with 1, 2, 3, 4.5, 6, 41, 42, 43, etc.
-# I need to increment these numbers by 4 so that they become 5, 6, 7, 8, etc.
+## selected_columns are the measurements from trans_features that I keep.
+## It is a list of numbers starting with 1, 2, 3, 4, 5, 6, 41, 42, 43, etc.
+## I increment these numbers by 4 so that they become 5, 6, 7, 8, etc.
+## and append the numbers 1, 2, 3, 4 to the front (the first 4 variables).
 
-#  Then I need to select() the selected_columns in ordered_data.  This will be
-#  my reduced_ordered_data.
+    rev_selected_columns <- selected_columns + 4
 
-##    Write a table for the reduced_ordered_data and call it tidy_ordered_data.
+    full_selected_columns <- c(1, 2, 3, 4, rev_selected_columns)
+    
+##  Then I need to select() the full_selected_columns in ordered_data.  This will be
+##  my reduced_ordered_data.
 
-##    tidy_ordered_data <- write.table(reduced_ordered_data)
+##  I use the dplyr library for this. 
 
-      tidy_ordered_data <- write.table(ordered_data, file = "tidy_ordered_data.txt", sep = " ", row.names=FALSE, col.names=TRUE)
+    library(dplyr)
 
-##  This completes the work for my first tidy data set.  Call it tidy_ordered_data. 
-##  tidy_ordered_data contains 4 categorical variables and 86 measurement variables, with
+    reduced_ordered_data <- select (ordered_data, full_selected_columns)
+    
+##  Write a table for the reduced_ordered_data and call it tidy_ordered_data.
+
+    tidy_ordered_data <- write.table(reduced_ordered_data, file = "tidy_ordered_data.txt", sep = " ", row.names=FALSE, col.names=TRUE)
+
+##  This completes the work for my first tidy data set.  It is called tidy_ordered_data. 
+##  tidy_ordered_data contains 4 categorical variables and 79 measurement variables, with
 ##  7352 data rows and 1 column headings row.
 
-##  For the next section, I chose to use the dplyr library to group and summarize and 
+##  For the next section, I use the dplyr library to group and summarize and 
 ##  the data by Subject and Activity.  I called it sum_ordered_data.
 ##  The final table created by a write.table is called tidy_data.
 
 ##  I use the dplyr library.
-
-##    Install.packages("dplyr")
     
-    library(dplyr)
-    
-#    clean_ordered_data <- select (ordered_data, rev_selected_columns)
-
-    sum_ordered_data <- ordered_data  %>%
+    sum_ordered_data <- reduced_ordered_data  %>%
   
     group_by(Subject, Activity) %>%
   
-    summarise_each(funs(mean), tBodyAcc.mean...X:fBodyBodyGyroJerkMag.std..)
+    summarise_each(funs(mean), tBodyAcc.mean...X:fBodyBodyGyroJerkMag.meanFreq..)
 
-##tail(sum_ordered_data, 3)
-
-  tidy_data <- write.table(sum_ordered_data, file="tidy_data.txt", sep = " ", row.names = FALSE, col.names = TRUE)
+    tidy_data <- write.table(sum_ordered_data, file="tidy_data.txt", sep = " ", row.names = FALSE, col.names = TRUE)
 
 ##  This completes the work for my 2nd tidy data set.  Call it tidy_data. 
 ##  It contains the average of each mean or std variable for each activity and each subject. 
-##  It consists of 2 categorical variables (Subject and Activity) and 86 measurement variables.  There
+##  It consists of 2 categorical variables (Subject and Activity) and 79 measurement variables.  There
 ##  are 180 rows(30 subjects, 6 activities each).
 
 }
