@@ -3,12 +3,7 @@ R script called run_analysis.R
 
 run_analysis()
 
-The script works with one exception.  I was unable to reduce the data set by removing those 
-columns that do not have measurement of mean or std.  I left my attempted code in the script
-ass comments so that you can see my attempt.  I do summarize properly and calculate the means
-and stds; just on too many columns!
-
-I also use the dplyr package.  The following are the steps taken.
+I use the dplyr package in this script.  The following are the steps taken.
 
 1. set the working directory for R script and Samsung data
 
@@ -59,17 +54,15 @@ and fill it with the sequential numbers from 7353 to 10299.
 16. rbind the ordered_X_train_data and the ordered_X_test_data and call it ordered_data.
   
 17. extract from ordered_data only those columns that are means or standard deviations 
-of each measurement.
+of each measurement.  I use the dplyr library for the select().
 
-Include all column headings that have the labels "-mean()" or "-std()" in them only.
+Include all column headings that have the labels "-mean()" or "-std() or "meanfreq()" in them only.
 I chose these formats because they seemed to be the same type of data.
-
-STEP 17 IS NOT YET WORKING.
 
 18. write a table for the reduced_ordered_data and call it tidy_ordered_data.
 
 This completes the work for my first tidy data set.  Call it tidy_ordered_data. 
-tidy_ordered_data contains 4 categorical variables and 86 measurement variables, with
+tidy_ordered_data contains 4 categorical variables and 79 measurement variables, with
 7352 data rows and 1 column headings row.
 
 For the next section, I chose to use the dplyr library to group and summarize and 
@@ -97,7 +90,7 @@ TAIL
 
 This completes the work for my 2nd tidy data set.  Call it tidy_data. 
 It contains the average of each mean or std variable for each activity and each subject. 
-It consists of 2 categorical variables (Subject and Activity) and 64 measurement variables.  There
+It consists of 2 categorical variables (Subject and Activity) and 79 measurement variables.  There
 are 180 rows(30 subjects, 6 activities each).
 
 
