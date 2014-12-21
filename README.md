@@ -61,10 +61,16 @@ This completes the work for my first tidy data set. tidy_ordered_data contains 4
 
 HEAD
 
-Subject Activity tBodyAcc.mean...X tBodyAcc.mean...Y tBodyAcc.mean...Z 1 1 LAYING 0.2215982 -0.040513953 -0.1132036 2 1 SITTING 0.2612376 -0.001308288 -0.1045442 3 1 STANDING 0.2789176 -0.016137590 -0.1106018
+   Subject Activity tBodyAcc.mean...X tBodyAcc.mean...Y tBodyAcc.mean...Z 
+1  1       LAYING   0.2215982         -0.040513953      -0.1132036 
+2  1       SITTING  0.2612376         -0.001308288      -0.1045442 
+3  1       STANDING 0.2789176         -0.016137590      -0.1106018
 
 TAIL
 
-Subject Activity tBodyAcc.mean...X tBodyAcc.mean...Y tBodyAcc.mean...Z 1 30 WALKING 0.2764068 -0.01758804 -0.09862471 2 30 WALKING_DOWNSTAIRS 0.2831906 -0.01743839 -0.09997814 3 30 WALKING_UPSTAIRS 0.2714156 -0.02533117 -0.12469749
+   Subject Activity            tBodyAcc.mean...X tBodyAcc.mean...Y tBodyAcc.mean...Z
+1  30      WALKING             0.2764068       -0.01758804       -0.09862471 
+2  30      WALKING_DOWNSTAIRS  0.2831906       -0.01743839       -0.09997814 
+3  30      WALKING_UPSTAIRS    0.2714156       -0.02533117       -0.12469749
 
 This completes the work for my 2nd tidy data set, called tidy_data.txt. It contains the average of each mean() or std() or meanfreq() variable for each activity and each subject. It consists of 2 categorical variables (Subject and Activity) and 79 measurement variables. There are 180 rows(30 subjects, 6 activities each).
