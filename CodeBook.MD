@@ -68,7 +68,7 @@ averages are summarized and grouped by Subject and Activity (the record number a
 
 tiny_data.txt file).
 
-The resulting TIDY DATA SET consists of 2 categorical variables (Subject and Activity) and 64 calculated means of the mean 
+The resulting TIDY DATA SET consists of 2 categorical variables (Subject and Activity) and 79 calculated means of the mean 
 
 measurement variables.  There are 180 rows (30 subjects, 6 activities each)
 
