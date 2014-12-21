@@ -100,4 +100,4 @@ It contains the average of each mean or std variable for each activity and each 
 It consists of 2 categorical variables (Subject and Activity) and 64 measurement variables.  There
 are 180 rows(30 subjects, 6 activities each).
 
-}
+
